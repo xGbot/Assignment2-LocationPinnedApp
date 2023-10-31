@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LocationPinned App</string>
+    <string name="main_header">Location Pinned</string>
+    <string name="latitude_hint">Enter Latitude</string>
+    <string name="longitude_hint">Enter Longitude</string>
+    <string name="search">Search Address</string>
+    <string name="address">Address:</string>
+</resources>
