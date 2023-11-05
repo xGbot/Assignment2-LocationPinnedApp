@@ -1,8 +1,18 @@
 <resources>
     <string name="app_name">LocationPinned App</string>
     <string name="main_header">Location Pinned</string>
+    <string name="address_hint">Enter Address</string>
     <string name="latitude_hint">Enter Latitude</string>
     <string name="longitude_hint">Enter Longitude</string>
-    <string name="search">Search Address</string>
     <string name="address">Address:</string>
+    <string name="search">Search</string>
+    <string name="add">Add Address</string>
+    <string name="delete">Delete Address</string>
+    <string name="update">Update Address</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="add_location">Add Location</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit">Edit Address</string>
+    <string name="save">Save</string>
 </resources>

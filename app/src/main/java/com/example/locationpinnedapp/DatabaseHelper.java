@@ -1,6 +1,8 @@
 package com.example.locationpinnedapp;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -34,5 +36,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.rawQuery("DROP TABLE IF EXISTS " + TABLE_NAME, null).close();
+    }
+
+    public Cursor findAddress(String query) {
+        SQLiteDatabase sdb = this.getReadableDatabase();
+
+        Cursor address = sdb.query(TABLE_NAME, null, COLUMN_ADDRESS + " LIKE ?",
+                new String[] {"%" + query + "%"}, null, null, null);
+        return address;
+    }
+
+    public Cursor getData() {
+        SQLiteDatabase sdb = this.getReadableDatabase();
+        return sdb.query(TABLE_NAME, null, null, null, null,
+                null, null);
+    }
+
+    public long insert(ContentValues values) {
+        SQLiteDatabase sdb = this.getWritableDatabase();
+
+        return sdb.insert(TABLE_NAME, null, values);
     }
 }

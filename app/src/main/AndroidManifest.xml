@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-
 
     <application
         android:allowBackup="true"
@@ -19,6 +17,12 @@
         android:theme="@style/Theme.LocationPinnedApp"
         tools:targetApi="31">
         <activity
+            android:name=".EditAddress"
+            android:exported="false" />
+        <activity
+            android:name=".AddLocation"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -29,7 +33,6 @@
         </activity>
 
         <uses-library android:name="com.google.android.maps" />
-
     </application>
 
 </manifest>

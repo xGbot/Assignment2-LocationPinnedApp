@@ -13,58 +13,52 @@
         android:text="@string/main_header"
         android:textSize="36sp"
         android:textStyle="bold"
-        android:layout_marginStart="16dp"
+        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edittext_latitude"
+    <LinearLayout
+        android:id="@+id/linearlayout_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/latitude_hint"
-        android:layout_margin="26dp"
-        app:layout_constraintTop_toBottomOf="@+id/textview_title"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintTop_toBottomOf="@id/textview_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/edittext_longitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/longitude_hint"
-        android:layout_margin="26dp"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_latitude"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-        android:id="@+id/button_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/search"
-        android:textSize="16sp"
-        android:layout_margin="26dp"
-        app:layout_constraintTop_toBottomOf="@id/edittext_longitude"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fab">
 
-    <TextView
-        android:id="@+id/textview_address"
+        <EditText
+            android:id="@+id/edittext_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="26dp"
+            android:padding="16dp"
+            android:hint="@string/address_hint"/>
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:textSize="16sp"
+            android:layout_margin="26dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/address"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:layout_margin="26dp"
-        app:layout_constraintTop_toBottomOf="@id/button_search"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-        android:id="@+id/textview_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="26sp"
-        android:layout_marginTop="26dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@id/textview_address"
-        app:layout_constraintTop_toBottomOf="@id/button_search"/>
+        android:layout_margin="16dp"
+        android:src="@drawable/baseline_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
