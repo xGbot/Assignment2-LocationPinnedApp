@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class EditAddress extends AppCompatActivity {
 
     private TextView address;
     private ProgressBar progress;
+    private ImageButton imgDelete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +35,13 @@ public class EditAddress extends AppCompatActivity {
         // Get views
         address = findViewById(R.id.textview_address);
         progress = findViewById(R.id.progress_finding);
+        imgDelete = findViewById(R.id.imageButton_delete);
         EditText latitude = findViewById(R.id.edittext_latitude);
         EditText longitude = findViewById(R.id.edittext_longitude);
         Button cancel = findViewById(R.id.button_cancel);
         Button search = findViewById(R.id.button_search);
         Button save = findViewById(R.id.button_save);
+
 
         // Put bundle info into views
         address.setText(bundle.getString(DatabaseHelper.COLUMN_ADDRESS));
@@ -47,6 +51,9 @@ public class EditAddress extends AppCompatActivity {
 
         // Go back to main screen
         cancel.setOnClickListener(v -> finish());
+
+        // Delete address from db
+        imgDelete.setOnClickListener(v -> deleteAddress(id));
 
         // Search new latitude and longitude
         search.setOnClickListener(v -> {
@@ -108,6 +115,16 @@ public class EditAddress extends AppCompatActivity {
 
         db.close();
         sdb.close();
+        finish();
+    }
+
+    public void deleteAddress(String id) {
+        DatabaseHelper db = new DatabaseHelper(this);
+        SQLiteDatabase sdb = db.getWritableDatabase();
+
+        sdb.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper.COLUMN_ID + " LIKE ?", new String[]{id});
+        sdb.close();
+        db.close();
         finish();
     }
 
