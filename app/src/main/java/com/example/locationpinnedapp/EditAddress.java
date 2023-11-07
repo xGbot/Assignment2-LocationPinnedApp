@@ -69,6 +69,7 @@ public class EditAddress extends AppCompatActivity {
         });
     }
 
+    // Search new address from users input
     public void searchAddress(String latitude, String longitude) {
         Geocoder geocoder = new Geocoder(this);
 
@@ -92,6 +93,7 @@ public class EditAddress extends AppCompatActivity {
 
     }
 
+    // Save new address
     public void saveAddress(String latitude, String longitude, String address, String id) {
         DatabaseHelper db = new DatabaseHelper(this);
         SQLiteDatabase sdb = db.getWritableDatabase();

@@ -38,7 +38,8 @@ public class AddLocation extends AppCompatActivity {
             insertAddress(latitude, longitude);
         });
     }
-    
+
+    // Insert address into db
     public void insertAddress(String latitude, String longitude) {
         Geocoder geocoder = new Geocoder(this);
         DatabaseHelper db = new DatabaseHelper(this);
